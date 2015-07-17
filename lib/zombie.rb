@@ -4,7 +4,7 @@ class Zombie
 
   SPEED = 1.2
   STEP_COUNT = 4
-  STEP_SPEED = 5
+  STEP_SPEED = 16
 
   def initialize(enemy_manager, window, x, y, direction, scale_x, scale_y)
     @enemy_manager, @window = enemy_manager, window

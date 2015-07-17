@@ -20,6 +20,9 @@ class GameWindow < Gosu::Window
     @game_manager ||= GameManager.new(self)
   end
 
+  def button_down(id)
+    close if id == Gosu::KbEscape || button_id_to_char(id) == 'q'
+  end
 end
 
 begin
