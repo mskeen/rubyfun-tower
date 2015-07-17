@@ -18,7 +18,7 @@ class EnemyManager
   def initialize(window)
     @window = window
     @enemies = []
-    @enemies << Zombie.new(self, window, 48, 48, EAST, 2.0)
+    @enemies << Zombie.new(self, window, 64 * window.game_manager.map.scale_x * 1.5, 64 * window.game_manager.map.scale_y * 1.5, EAST, window.game_manager.map.scale_x, window.game_manager.map.scale_x)
   end
 
   def draw

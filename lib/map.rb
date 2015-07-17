@@ -1,6 +1,9 @@
 require 'gosu'
 
 class Map
+  WINDOW_WIDTH = 640
+  WINDOW_HEIGHT = 640
+  SPRITE_SIZE = 64
 
   def initialize(window)
     @window = window
@@ -16,14 +19,24 @@ class Map
         @grid << line.split(//)
       end
     end
+    @scale_x = (WINDOW_WIDTH.to_f / @grid[0].size) / SPRITE_SIZE
+    @scale_y = (WINDOW_WIDTH.to_f / @grid.size) / SPRITE_SIZE
   end
 
   def draw
     @grid.each_with_index do |row, y|
       row.each_with_index do |col, x|
-        @road_tiles[col.to_i].draw(x*32, y*32, 0, 0.5, 0.5)
+        @road_tiles[col.to_i].draw(x * 64 * scale_x, y * 64 * scale_y, 0, scale_x, scale_y)
       end
     end
+  end
+
+  def scale_x
+    @scale_x
+  end
+
+  def scale_y
+    @scale_y
   end
 
   private
