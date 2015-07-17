@@ -31,6 +31,10 @@ class Map
     end
   end
 
+  def scale
+    [scale_x, scale_y]
+  end
+
   def scale_x
     @scale_x
   end
